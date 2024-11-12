@@ -4,9 +4,10 @@ import { ShoppingCart } from "@mui/icons-material";
 import { Box, Stack, Toolbar, Typography } from "@mui/material";
 import CustomButton from "../customButton";
 import ItemCard from "../itemCard";
+import { CartInterface } from "@/lib/types/Cart";
 
 interface CartProps {
-  cart: Cart;
+  cart: CartInterface;
   handleQuantityChange: (productId: number, quantity: number) => void;
   handleCheckout: () => void;
 }

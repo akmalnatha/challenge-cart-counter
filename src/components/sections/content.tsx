@@ -7,10 +7,12 @@ import { useEffect, useState } from "react";
 import Banner from "../banner";
 import CartDrawer from "../cartDrawer";
 import OrderDialog from "../orderDialog";
+import { CartItem } from "@/lib/types/CartItem";
+import { Product } from "@/lib/types/Product";
+import { CartInterface } from "@/lib/types/Cart";
 
 export default function Content() {
-  const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState<Cart>({
+  const [cart, setCart] = useState<CartInterface>({
     userId: 2,
     date: undefined,
     products: [],
@@ -25,7 +27,7 @@ export default function Content() {
 
   const createCart = async () => {
     try {
-      const cartData: Omit<Cart, "id"> = {
+      const cartData: Omit<CartInterface, "id"> = {
         userId: 2,
         date: undefined,
         products: [],
@@ -41,12 +43,10 @@ export default function Content() {
 
       if (!response.ok) throw new Error("Failed to create cart");
 
-      const data: Cart = await response.json();
+      const data: CartInterface = await response.json();
       setCart(data);
     } catch (error) {
       console.error("Error creating cart:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -189,7 +189,6 @@ export default function Content() {
       <OrderDialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
-        handleCheckout={handleCheckout}
         onOrderSubmit={handleOrderSubmit}
       />
       <Snackbar

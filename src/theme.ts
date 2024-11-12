@@ -1,6 +1,6 @@
 'use client';
 import { Poppins, Figtree } from 'next/font/google';
-import { createTheme, Shadows, ThemeOptions } from '@mui/material/styles';
+import { createTheme, ThemeOptions } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface PaletteColor {

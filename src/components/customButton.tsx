@@ -15,10 +15,6 @@ interface CustomButtonProps extends ButtonProps {
   text?: string;
   fullHeight?: boolean;
   isLoading?: boolean;
-  customColor?: string;
-  mainColor?: string;
-  mainColorHover?: string;
-  textColor?: string;
   textWeight?: number;
   icon?: ReactElement;
   iconPosition?: "start" | "end";
@@ -45,10 +41,6 @@ function CustomButton({
   text,
   variant = "contained",
   isLoading = false,
-  customColor = "primary",
-  mainColor = "main",
-  mainColorHover = "800",
-  textColor = "contrastText",
   textWeight = 400,
   icon,
   iconPosition = "start",

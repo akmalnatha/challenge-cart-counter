@@ -2,19 +2,17 @@ import Card, { CardProps } from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box, IconButton, Stack } from "@mui/material";
-import { ReactElement } from "react";
 import {
   Add,
-  Delete,
   Remove,
   Star,
   StarBorder,
   StarHalf,
 } from "@mui/icons-material";
 import CustomButton from "./customButton";
+import { CartItem } from "@/lib/types/CartItem";
 
 interface ItemCardProps extends Omit<CardProps, 'title'> {
   type?: "cart" | "list";

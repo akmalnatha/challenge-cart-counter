@@ -12,14 +12,12 @@ import CustomTextField from "./customTextField";
 interface OrderDialogProps {
   open: boolean;
   onClose: () => void;
-  handleCheckout: () => void;
   onOrderSubmit: (success: boolean) => void;
 }
 
 export default function OrderDialog({
   open,
   onClose,
-  handleCheckout,
   onOrderSubmit,
 }: OrderDialogProps) {
   const [formData, setFormData] = useState({
@@ -46,7 +44,7 @@ export default function OrderDialog({
   };
 
   const validateForm = () => {
-    let errors = {
+    const errors = {
       name: "",
       address: "",
       email: "",

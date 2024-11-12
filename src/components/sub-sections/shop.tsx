@@ -1,12 +1,15 @@
 import { Box, InputAdornment, Stack } from "@mui/material";
 import CustomTextField from "../customTextField";
 import ItemCard from "../itemCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Search } from "@mui/icons-material";
+import { CartInterface } from "@/lib/types/Cart";
+import { Product } from "@/lib/types/Product";
+import { CartItem } from "@/lib/types/CartItem";
 
 interface ShopProps {
-  cart: Cart;
-  setCart: React.Dispatch<React.SetStateAction<Cart>>;
+  cart: CartInterface;
+  setCart: React.Dispatch<React.SetStateAction<CartInterface>>;
   handleQuantityChange: (productId: number, quantity: number) => void;
   products: Product[];
 }
@@ -28,7 +31,7 @@ export default function Shop({
   };
 
   const handleAddToCart = (product: CartItem) => {
-    setCart((prevCart: Cart) => {
+    setCart((prevCart) => {
       if (!prevCart) return prevCart;
 
       const existingProduct = prevCart.products.find(

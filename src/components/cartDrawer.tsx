@@ -8,15 +8,13 @@ import {
   IconButton,
   Typography,
   Box,
-  Alert,
-  Snackbar,
 } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 import Cart from "./sub-sections/cart";
-import CustomButton from "./customButton";
+import { CartInterface } from "@/lib/types/Cart";
 
 interface CartProps {
-  cart: Cart;
+  cart: CartInterface;
   handleQuantityChange: (productId: number, quantity: number) => void;
   handleCheckout: () => void;
 }
